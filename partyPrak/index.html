@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Праздник в каждый дом | Подарим волшебство для Ваших детей!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="location-modal.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="extras.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <img src="images/for logo/1.jpg" alt="Логотип" class="logo-img">
+                <span>Праздник в каждый дом</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="#hero" class="nav__link">Главная</a></li>
+                    <li><a href="#about" class="nav__link">О нас</a></li>
+                    <li><a href="#steps" class="nav__link">Как заказать</a></li>
+                    <li><a href="#locations" class="nav__link">Локации</a></li>
+                    <li><a href="#promotions" class="nav__link">Акции</a></li>
+                    <li><a href="#prices" class="nav__link">Цены</a></li>
+                    <li><a href="#reviews" class="nav__link">Отзывы</a></li>
+                    <li><a href="#search-section" class="nav__link">Поиск</a></li>
+                    <li><a href="booking.html" class="nav__link nav__link--accent">Управление бронированием</a></li>
+                </ul>
+            </nav>
+            <button class="nav__toggle" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero__bg">
+                <img src="images/location/1.jpg" alt="Детский праздник">
+            </div>
+            <div class="hero__overlay"></div>
+            <div class="container hero__content">
+                <h1 class="hero__title">«Праздник в каждый дом»</h1>
+                <p class="hero__slogan">Подарим волшебство для Ваших детей!</p>
+                <button class="btn btn--primary js-open-modal">Забронировать праздник</button>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section__title">О нас</h2>
+                <div class="about__content">
+                    <p class="about__goal"><strong>Наша цель:</strong> Сделать каждый детский праздник незабываемым волшебством!</p>
+                    <p class="about__motto"><strong>Девиз:</strong> «Подарим волшебство для Ваших детей!»</p>
+                    <p>«Праздник в каждый дом» предоставляет услуги организации детских праздников на нашей территории в очень интересных локациях. Главная цель компании – сделать праздник незабываемым для детей и их родителей.</p>
+                </div>
+                <div id="reviews" class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-card__text">
+                            Спасибо большое! Дети в бурных эмоциях, аниматор супер, даже взрослые участвовали. Успехов вам больших!
+                        </div>
+                        <div class="review-card__author">— Светлана</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-card__text">
+                            ДР ребенка 3 года, аниматоры молодцы! Крош отработал на 5, все дети в восторге! Шоу мыльных пузырей чудесное!
+                        </div>
+                        <div class="review-card__author">— Марина</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-card__text">
+                            Всё очень понравилось. Игры хорошие, аниматоры отличные, костюмы классные! Дети были в восторге!!!
+                        </div>
+                        <div class="review-card__author">— Алена</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="section steps">
+    <div class="container">
+        <h2 class="section__title">Как заказать праздник</h2>
+        <p class="section__subtitle">Всего 6 простых шагов</p>
+        <div class="steps__wrapper">
+            <div class="step-card reveal js-open-modal" style="cursor: pointer;">
+                <div class="step-card__num">1</div>
+                <img src="images/promotions/calendar.jpg" alt="Выбрать дату" class="step-card__img" loading="lazy">
+                <div class="step-card__text">Выбрать даты праздника</div>
+            </div>
+
+            <div class="step-card reveal js-open-modal" style="cursor: pointer;">
+                <div class="step-card__num">2</div>
+                <img src="images/promotions/ppl.png" alt="Количество участников" class="step-card__img" loading="lazy">
+                <div class="step-card__text">Выбрать количество участников</div>
+            </div>
+
+            <div class="step-card reveal js-open-location-modal" style="cursor: pointer;">
+                <div class="step-card__num">3</div>
+                <img src="images/plan/1.jpg" alt="Карта локации" class="step-card__img" loading="lazy">
+                <div class="step-card__text">Выбрать желаемую локацию</div>
+            </div>
+
+            <div class="step-card reveal js-open-modal" style="cursor: pointer;">
+                <div class="step-card__num">4</div>
+                <img src="images/promotions/zona.png" alt="Резерв зоны" class="step-card__img" loading="lazy">
+                <div class="step-card__text">Зарезервировать зону</div>
+            </div>
+
+            <div class="step-card reveal js-open-modal" style="cursor: pointer;">
+                <div class="step-card__num">5</div>
+                <div class="step-card__num">5</div>
+                <img src="images/promotions/service.jpg" alt="Доп услуги" class="step-card__img" loading="lazy">
+                <div class="step-card__text">Определить доп. услуги</div>
+            </div>
+
+            <div class="step-card reveal js-open-modal" style="cursor: pointer;">
+                <div class="step-card__num">6</div>
+                <img src="images/promotions/oeder.jpg" alt="Оформить заказ" class="step-card__img" loading="lazy">
+                <div class="step-card__text">Оформить заказ</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="locations" class="section locations-preview">
+            <div class="container">
+                <h2 class="section__title">Наши лучшие локации</h2>
+                <p class="section__subtitle">Места, где рождается сказка</p>
+                <div class="locations-grid">
+                    <div class="location-card reveal">
+                        <img src="images/location/2.jpg" alt="Озеро Красилово">
+                        <div class="location-card__content">
+                            <h3>Озеро Красилово</h3>
+                            <p>Живописная природа, свежий воздух и простор для активных игр.</p>
+                            <button class="btn btn--outline js-trigger-booking" data-location="krasilovo">Забронировать</button>
+                        </div>
+                    </div>
+                    <div class="location-card reveal">
+                        <img src="images/location/6.jpg" alt="Парк-отель Чайка">
+                        <div class="location-card__content">
+                            <h3>Парк-отель Чайка</h3>
+                            <p>Комфортабельные условия, бассейн и закрытая территория.</p>
+                            <button class="btn btn--outline js-trigger-booking" data-location="chaika">Забронировать</button>
+                        </div>
+                    </div>
+                    <div class="location-card reveal">
+                        <img src="images/location/17.jpeg" alt="Волшебный лес">
+                        <div class="location-card__content">
+                            <h3>Волшебный лес</h3>
+                            <p>Загадочная атмосфера для квестов и приключений.</p>
+                            <button class="btn btn--outline js-trigger-booking" data-location="loc3">Забронировать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="search-section" class="section search-section">
+            <div class="container">
+                <h2 class="section__title">Поиск свободных дат</h2>
+                <form class="search-form" id="searchForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="region">Регион</label>
+                            <select id="region" name="region" required>
+                                <option value="">Выберите регион</option>
+                                <option value="Алтайский край">Алтайский край</option>
+                                <option value="Красноярский край">Красноярский край</option>
+                                <option value="Московская область">Московская область</option>
+                                <option value="Ленинградская область">Ленинградская область</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-date">Дата мероприятия</label>
+                            <input type="date" id="event-date" name="event-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adults">Взрослые</label>
+                            <input type="number" id="adults" name="adults" min="0" max="50" value="2">
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Дети</label>
+                            <input type="number" id="children" name="children" min="0" max="50" value="5">
+                        </div>
+                        <div class="form-group form-group--btn">
+                            <button type="submit" class="btn btn--primary btn--large">Поиск</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="promotions" class="section promotions">
+            <div class="container">
+                <h2 class="section__title">Акции</h2>
+                <div class="promo-grid">
+                    <div class="promo-card reveal">
+                        <div class="promo-card__img-wrapper">
+                            <img src="images/promotions/promotion1.jpg" alt="Акция 1" loading="lazy">
+                        </div>
+                        <div class="promo-card__content">
+                            <h4 class="promo-card__title">Скидка до 60%</h4>
+                            <p>За заказ зоны (от 25 человек) в локации «Черная жемчужина»</p>
+                            <button class="btn btn--outline promo-card__btn">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="promo-card reveal">
+                        <div class="promo-card__img-wrapper">
+                            <img src="images/promotions/promotion2.jpg" alt="Акция 2" loading="lazy">
+                        </div>
+                        <div class="promo-card__content">
+                            <h4 class="promo-card__title">Скидка до 51%</h4>
+                            <p>При заказе услуг аниматоров в локации «Поляна сказок»</p>
+                            <button class="btn btn--outline promo-card__btn">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="promo-card reveal">
+                        <div class="promo-card__img-wrapper">
+                            <img src="images/promotions/promotion3.jpg" alt="Акция 3" loading="lazy">
+                        </div>
+                        <div class="promo-card__content">
+                            <h4 class="promo-card__title">Скидка до 25%</h4>
+                            <p>Закажи праздник "Под ключ" и экономь!</p>
+                            <button class="btn btn--outline promo-card__btn">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prices" class="section prices">
+            <div class="container">
+                <h2 class="section__title">Наши цены</h2>
+                <div class="price-list">
+                    <div class="price-row">
+                        <span>Аренда зоны (будни)</span>
+                        <span class="price-row__val">от 2000 ₽</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Аренда зоны (выходные)</span>
+                        <span class="price-row__val">от 3500 ₽</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Услуги аниматора (1 час)</span>
+                        <span class="price-row__val">2500 ₽</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Шоу мыльных пузырей</span>
+                        <span class="price-row__val">5000 ₽</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section newsletter">
+            <div class="container">
+                <div class="newsletter__wrapper">
+                    <h3 class="newsletter__title">Подпишитесь на наши новости и акции</h3>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" id="newsletter-email" placeholder="Ваш email" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__info">
+                <div class="footer__phone">
+                    Телефон: <a href="tel:88001112020">8 (800) 111-20-20</a>
+                </div>
+                <div class="footer__links">
+                    <a href="#">Возврат</a>
+                    <a href="#">Обратная связь</a>
+                    <a href="index.html">Home</a>
+                    <a href="#">Login</a>
+                    <a href="#">Sign up</a>
+                    <a href="#">Contact</a>
+                    <a href="#">News</a>
+                </div>
+            </div>
+            <p class="copyright">
+                © 2024 Праздник в каждый дом. Все права защищены.
+            </p>
+        </div>
+    </footer>
+
+    <div class="modal" id="bookingModal">
+        <div class="modal__overlay js-close-modal"></div>
+        <div class="modal__content">
+            <button class="modal__close js-close-modal" aria-label="Закрыть">&times;</button>
+            <h3 class="modal__title">Забронировать праздник</h3>
+            <form class="booking-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" placeholder="+7 (999) 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Дата праздника</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Количество детей</label>
+                    <input type="number" id="guests" min="1" placeholder="10">
+                </div>
+                <div class="form-group">
+                    <label for="guests">Количество взрослых</label>
+                    <input type="number" id="guests" min="1" placeholder="5">
+                </div>
+                <div class="form-group">
+                    <label for="location-select">Желаемая локация</label>
+                    <select id="location-select">
+                        <option value="">Не выбрана</option>
+                        <option value="krasilovo">Озеро Красилово</option>
+                        <option value="chaika">Парк-отель Чайка</option>
+                        <option value="loc3">Волшебный лес</option>
+                        <option value="loc4">Локация 4</option>
+                        <option value="loc5">Локация 5</option>
+                        <option value="loc6">Локация 6</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="services">Дополнительные услуги</label>
+                    <textarea id="services" rows="3" placeholder="Аниматоры, питание и т.д."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="locationModal">
+        <div class="modal__overlay js-close-location-modal"></div>
+        <div class="modal__content modal__content--large">
+            <button class="modal__close js-close-location-modal" aria-label="Закрыть">&times;</button>
+            <h3 class="modal__title">Выберите локацию</h3>
+            <div class="location-selection-grid">
+                <div class="location-option-card js-select-location" data-location="krasilovo">
+                    <img src="images/location/2.jpg" alt="Озеро Красилово" loading="lazy">
+                    <div class="location-option-card__info">
+                        <h4>Озеро Красилово</h4>
+                        <p>Живописное озеро, идеально для праздников на природе</p>
+                    </div>
+                </div>
+                <div class="location-option-card js-select-location" data-location="chaika">
+                    <img src="images/location/6.jpg" alt="Парк-отель Чайка" loading="lazy">
+                    <div class="location-option-card__info">
+                        <h4>Парк-отель Чайка</h4>
+                        <p>Уютный парк-отель с бассейном и беседками</p>
+                    </div>
+                </div>
+                <div class="location-option-card js-select-location" data-location="loc3">
+                    <img src="https://placehold.co/600x400/48DBFB/ffffff?text=Локация+3" alt="Локация 3" loading="lazy">
+                    <div class="location-option-card__info">
+                        <h4>Волшебный лес</h4>
+                        <p>Краткое описание локации 3</p>
+                    </div>
+                </div>
+                <div class="location-option-card js-select-location" data-location="loc4">
+                    <img src="https://placehold.co/600x400/a29bfe/ffffff?text=Локация+4" alt="Локация 4" loading="lazy">
+                    <div class="location-option-card__info">
+                        <h4>Локация 4</h4>
+                        <p>Краткое описание локации 4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox__overlay js-close-lightbox"></div>
+        <div class="lightbox__content">
+            <img src="" alt="Просмотр" class="lightbox__img">
+            <button class="lightbox__close js-close-lightbox">&times;</button>
+        </div>
+    </div>
+
+    <div class="modal" id="promoModal">
+        <div class="modal__overlay js-close-promo-modal"></div>
+        <div class="modal__content modal__content--promo">
+            <button class="modal__close js-close-promo-modal" aria-label="Закрыть">&times;</button>
+            <div id="promoModalContent">
+                </div>
+        </div>
+    </div>
+
+    <script src="modal.js"></script>
+    <script src="location-select.js"></script>
+    <script src="lightbox.js"></script>
+    <script src="form.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

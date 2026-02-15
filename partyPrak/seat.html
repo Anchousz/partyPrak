@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор зоны | Праздник в каждый дом</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="location-modal.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="extras.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <img src="images/for logo/1.jpg" alt="Логотип" class="logo-img">
+                <span>Праздник в каждый дом</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html#hero" class="nav__link">Главная</a></li>
+                    <li><a href="index.html#about" class="nav__link">О нас</a></li>
+                    <li><a href="index.html#steps" class="nav__link">Как заказать</a></li>
+                    <li><a href="index.html#locations" class="nav__link">Локации</a></li>
+                    <li><a href="index.html#promotions" class="nav__link">Акции</a></li>
+                    <li><a href="index.html#prices" class="nav__link">Цены</a></li>
+                    <li><a href="index.html#reviews" class="nav__link">Отзывы</a></li>
+                    <li><a href="index.html#search-section" class="nav__link">Поиск</a></li>
+                    <li><a href="booking.html" class="nav__link nav__link--accent">Управление бронированием</a></li>
+                </ul>
+            </nav>
+            <button class="nav__toggle" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section seat-selection">
+            <div class="container">
+                <h1 class="section__title">Выберите зону для праздника</h1>
+                <div class="location-info" id="locationInfo"></div>
+                <div class="seat-layout">
+                    <h2>Схема локации</h2>
+                    <div class="zones-container" id="zonesContainer"></div>
+                </div>
+                <div class="seat-summary">
+                    <p>Выбрано зон: <span id="selectedZonesCount">0</span></p>
+                    <p>Итоговая стоимость: <span id="totalZonePrice">0</span> ₽</p>
+                    <button class="btn btn--primary" id="goToBookingBtn">Перейти к бронированию</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__info">
+                <div class="footer__phone">Телефон: <a href="tel:88001112020">8 (800) 111-20-20</a></div>
+                <div class="footer__links">
+                    <a href="#">Возврат</a>
+                    <a href="#">Обратная связь</a>
+                    <a href="index.html">Home</a>
+                    <a href="#">Login</a>
+                    <a href="#">Sign up</a>
+                    <a href="#">Contact</a>
+                    <a href="#">News</a>
+                </div>
+            </div>
+            <p class="copyright">© 2024 Праздник в каждый дом</p>
+        </div>
+    </footer>
+
+    <script src="modal.js"></script>
+    <script src="seat.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

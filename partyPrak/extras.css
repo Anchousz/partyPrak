@@ -1,0 +1,270 @@
+/* extras.css – Полный набор стилей сайта */
+
+/* 1. Кнопки */
+.btn--outline {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 16px 30px;
+    min-width: 180px;
+}
+.btn--outline:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* 2. Секция поиска */
+.search-section {
+    background: linear-gradient(135deg, #f9f0ff, #fff5e6);
+    padding: 60px 0;
+}
+.search-form {
+    background: #fff;
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: var(--shadow-soft);
+}
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    align-items: flex-end;
+}
+.form-group--btn { display: flex; align-items: flex-end; }
+.btn--large { padding: 18px 35px; font-size: 1.2rem; width: 100%; }
+
+@media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr; gap: 15px; }
+}
+
+/* 3. Подписка (Newsletter) */
+.newsletter { background: var(--grad-primary); color: #fff; }
+.newsletter__wrapper {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;
+}
+.newsletter__title { font-size: 1.8rem; margin: 0; }
+.newsletter-form { display: flex; gap: 15px; flex-wrap: wrap; }
+.newsletter-form .form-group { flex: 1 1 250px; }
+.newsletter-form input {
+    width: 100%; padding: 18px 25px;
+    border-radius: 50px; border: none; font-size: 1rem;
+}
+.newsletter-form .btn { padding: 18px 35px; }
+
+@media (max-width: 768px) {
+    .newsletter__wrapper { flex-direction: column; text-align: center; }
+    .newsletter-form { width: 100%; justify-content: center; }
+}
+
+/* 4. Результаты поиска и карточки локаций */
+.search-results .locations-grid, .locations-preview .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.location-card {
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+.location-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-glow); }
+.location-card img { width: 100%; height: 200px; object-fit: cover; }
+.location-card__content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+.location-card h3 { color: var(--color-primary); margin: 0 0 10px; font-size: 1.5rem; }
+.location-card p { margin-bottom: 20px; color: #666; }
+.location-card .btn { margin-top: auto; width: 100%; }
+
+/* 5. Выбор места (Зоны) */
+.seat-layout {
+    background: #fafafa;
+    border-radius: 40px;
+    padding: 40px;
+    margin: 30px 0;
+}
+.zones-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+.zone-card {
+    background: #fff;
+    border: 3px solid #eee;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.zone-card.available:hover { border-color: var(--color-primary); transform: scale(1.03); }
+.zone-card.selected { border-color: var(--color-secondary); background: #fff9f0; }
+.zone-card.booked {
+    opacity: 0.6;
+    background: #f0f0f0;
+    cursor: not-allowed;
+    border-color: #ccc;
+}
+.seat-summary {
+    margin-top: 30px; padding: 25px;
+    background: #fff3e0;
+    border-radius: 30px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+}
+
+/* 6. Дизайн страницы бронирования */
+.page-booking-bg {
+    background: url('images/location/2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+.page-booking-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+.booking-main-content {
+    padding: 120px 0 60px;
+    min-height: 90vh;
+}
+
+.booking-card-container {
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.booking-header { text-align: center; margin-bottom: 40px; }
+.booking-title { 
+    font-size: 2.5rem; margin: 0; color: var(--color-primary); 
+    background: var(--grad-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.booking-subtitle { font-size: 1.1rem; color: #666; margin-top: 10px; }
+
+.booking-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.booking-section-title {
+    font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px;
+    color: var(--color-secondary);
+}
+
+.input-styled {
+    width: 100%; padding: 15px; border-radius: 12px;
+    border: 1px solid #ddd; background: #f9f9f9;
+    font-family: inherit; font-size: 1rem; transition: var(--transition);
+}
+.input-styled:focus {
+    background: #fff; border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.1); outline: none;
+}
+.input-price { font-weight: 700; color: var(--color-primary); font-size: 1.2rem; }
+
+.form-group-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.services-list { display: flex; flex-direction: column; gap: 15px; }
+.service-item {
+    display: flex; align-items: center; gap: 15px;
+    padding: 15px; border-radius: 15px; border: 1px solid #eee;
+    cursor: pointer; transition: var(--transition);
+}
+.service-item:hover { background: #fdfdfd; border-color: var(--color-accent); }
+.service-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--color-primary); }
+.service-info { display: flex; flex-direction: column; }
+.service-name { font-weight: 700; color: var(--color-text); }
+.service-price { font-size: 0.9rem; color: #888; }
+
+.contact-details-block { margin-top: 30px; }
+
+.booking-footer {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed #ddd;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+}
+
+.total-price-block { font-size: 1.5rem; color: var(--color-text); }
+.total-value { font-weight: 900; color: var(--color-primary); font-size: 2.2rem; margin-left: 10px; }
+.btn--glow { box-shadow: 0 0 20px rgba(138, 43, 226, 0.4); width: 100%; max-width: 400px; }
+
+@media (max-width: 768px) {
+    .booking-grid-layout { grid-template-columns: 1fr; gap: 30px; }
+    .booking-card-container { padding: 25px; }
+    .booking-title { font-size: 2rem; }
+}
+
+/* 7. Карточки шагов (Step Cards) */
+.step-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 30px;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-top: 40px; 
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.step-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+.step-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+.step-card:hover .step-card__img {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+.step-card__text {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #333;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+.step-card:hover .step-card__text {
+    color: var(--color-primary, #8A2BE2);
+}
+
+/* 8. ИСПРАВЛЕННЫЙ СЕЛЕКТ РЕГИОНА */
+#booking-region.input-styled {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238A2BE2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+}
+#booking-region.input-styled:hover {
+    border-color: #48DBFB;
+    box-shadow: 0 4px 12px rgba(72, 219, 251, 0.2);
+}
+#booking-region option {
+    padding: 10px;
+    font-size: 1rem;
+}

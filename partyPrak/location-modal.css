@@ -1,0 +1,68 @@
+/* location-modal.css */
+
+.location-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 10px 5px;
+}
+
+.location-selection-grid::-webkit-scrollbar { width: 6px; }
+.location-selection-grid::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+.location-selection-grid::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 10px; }
+.location-selection-grid::-webkit-scrollbar-thumb:hover { background: var(--color-secondary); }
+
+.location-option-card {
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+    display: flex; flex-direction: column;
+    position: relative;
+}
+
+.location-option-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--color-primary);
+}
+
+.location-option-card::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(72,219,251,0.1) 100%);
+    opacity: 0; transition: var(--transition); pointer-events: none;
+}
+.location-option-card:hover::after { opacity: 1; }
+
+.location-option-card img {
+    width: 100%; height: 180px; object-fit: cover; transition: var(--transition);
+}
+.location-option-card:hover img { transform: scale(1.05); }
+
+.location-option-card__info {
+    padding: 20px; text-align: center; background: #fff;
+    position: relative; z-index: 2;
+}
+
+.location-option-card__info h4 { margin: 0 0 8px; color: var(--color-primary); font-size: 1.3rem; }
+.location-option-card__info p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5; }
+
+.location-option-card.selected {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 4px rgba(255, 159, 67, 0.3);
+}
+.location-option-card.selected::after {
+    background: linear-gradient(135deg, rgba(255,159,67,0.15) 0%, rgba(255,159,67,0.05) 100%);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .location-selection-grid { grid-template-columns: 1fr; max-height: 60vh; }
+    .location-option-card img { height: 160px; }
+}
