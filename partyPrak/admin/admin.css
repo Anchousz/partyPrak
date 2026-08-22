@@ -1,0 +1,203 @@
+/* ==========================================================================
+   admin.css — панель менеджера. Использует те же токены, что и сайт,
+   поэтому отдельной палитры здесь нет.
+   ========================================================================== */
+
+.admin {
+    background: var(--paper-sunken);
+    min-height: 100vh;
+}
+
+/* --- Верхняя панель ------------------------------------------------------- */
+.admin__bar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-5);
+    background: var(--paper-raised);
+    border-bottom: 2px solid var(--rule);
+    box-shadow: var(--shadow-sm);
+}
+.admin__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+.admin__brand img { border-radius: 50%; border: 2px solid var(--amber); }
+
+.admin__nav { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.admin__link {
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--radius-pill);
+    color: var(--ink-2);
+    font-size: var(--text-base);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color var(--duration-fast) var(--ease-out),
+                color var(--duration-fast) var(--ease-out);
+}
+.admin__link:hover { background: var(--pink-soft); color: var(--pink-deep); }
+.admin__link.is-active { background: var(--pink-soft); color: var(--pink-deep); }
+
+.admin__actions { display: flex; gap: var(--space-2); margin-left: auto; }
+
+/* --- Содержимое ----------------------------------------------------------- */
+.admin__main {
+    max-width: 78rem;
+    margin-inline: auto;
+    padding: var(--space-7) var(--space-5) var(--space-10);
+}
+.admin__title { font-size: var(--text-2xl); margin-bottom: var(--space-6); }
+.admin__section-title { font-size: var(--text-xl); margin: var(--space-8) 0 var(--space-4); }
+.admin__muted { color: var(--ink-3); font-size: var(--text-sm); }
+.admin__empty {
+    padding: var(--space-8);
+    background: var(--paper-raised);
+    border: 3px dashed var(--rule-strong);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    color: var(--ink-3);
+}
+
+.admin__card {
+    padding: var(--space-6);
+    background: var(--paper-raised);
+    border: 2px solid var(--rule);
+    border-radius: var(--radius-xl);
+}
+.admin__form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+    gap: var(--space-4);
+}
+
+/* --- Плашки --------------------------------------------------------------- */
+.admin__flash {
+    padding: var(--space-4) var(--space-5);
+    margin-bottom: var(--space-5);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    animation: rise 320ms var(--ease-out) both;
+}
+.admin__flash--ok  { background: var(--mint-soft);   color: var(--mint-deep); }
+.admin__flash--err { background: var(--danger-soft); color: var(--danger); }
+
+/* --- Сводка --------------------------------------------------------------- */
+.admin__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+    gap: var(--space-4);
+}
+.admin__stat {
+    padding: var(--space-5);
+    background: var(--paper-raised);
+    border: 2px solid var(--rule);
+    border-radius: var(--radius-lg);
+    animation: rise 420ms var(--ease-out) both;
+}
+.admin__stat:nth-child(2) { animation-delay: 60ms; }
+.admin__stat:nth-child(3) { animation-delay: 120ms; }
+.admin__stat:nth-child(4) { animation-delay: 180ms; }
+.admin__stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--pink-deep);
+    line-height: 1.1;
+}
+.admin__stat-label { font-size: var(--text-sm); font-weight: 600; color: var(--ink-3); }
+
+/* --- Таблицы -------------------------------------------------------------- */
+.admin__table-wrap {
+    overflow-x: auto;
+    background: var(--paper-raised);
+    border: 2px solid var(--rule);
+    border-radius: var(--radius-lg);
+}
+.admin__table { width: 100%; border-collapse: collapse; min-width: 46rem; }
+.admin__table th,
+.admin__table td {
+    padding: var(--space-4);
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+}
+.admin__table thead th {
+    font-size: var(--text-xs);
+    font-weight: 800;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    background: var(--pink-soft);
+    border-bottom: 0;
+    white-space: nowrap;
+}
+.admin__table tbody tr:last-child th,
+.admin__table tbody tr:last-child td { border-bottom: 0; }
+.admin__table tbody tr:hover { background: var(--paper-sunken); }
+
+.admin__row-form { display: inline-block; margin: 0 var(--space-2) var(--space-2) 0; }
+.input--sm { padding: 0.4rem 2rem 0.4rem 0.6rem; font-size: var(--text-sm); }
+
+/* --- Статусы -------------------------------------------------------------- */
+.admin__status {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-xs);
+    font-weight: 800;
+    white-space: nowrap;
+}
+.admin__status--new       { background: var(--amber-soft);  color: var(--amber-deep); }
+.admin__status--confirmed { background: var(--mint-soft);   color: var(--mint-deep); }
+.admin__status--done      { background: var(--violet-soft); color: var(--violet-deep); }
+.admin__status--cancelled { background: var(--danger-soft); color: var(--danger); }
+
+/* --- Фильтры -------------------------------------------------------------- */
+.admin__filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); }
+.admin__chip {
+    padding: 0.45rem 0.9rem;
+    background: var(--paper-raised);
+    border: 2px solid var(--rule);
+    border-radius: var(--radius-pill);
+    color: var(--ink-2);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-decoration: none;
+}
+.admin__chip:hover { border-color: var(--pink); color: var(--pink-deep); }
+.admin__chip.is-active { background: var(--pink-soft); border-color: var(--pink); color: var(--pink-deep); }
+
+/* --- Экран входа ---------------------------------------------------------- */
+.admin--login {
+    display: grid;
+    place-items: center;
+    padding: var(--space-6);
+    background: var(--grad-night);
+}
+.admin__login {
+    width: min(24rem, 100%);
+    padding: var(--space-7);
+    background: var(--paper-raised);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    animation: rise 500ms var(--ease-bounce) both;
+}
+.admin__login-logo { border-radius: 50%; margin: 0 auto var(--space-4); border: 3px solid var(--amber); }
+.admin__login-title { font-size: var(--text-xl); }
+.admin__login-hint { margin: var(--space-2) 0 var(--space-5); font-size: var(--text-sm); color: var(--ink-3); }
+.admin__login .field { text-align: left; }
+.admin__login-back { margin-top: var(--space-5); font-size: var(--text-sm); }
+
+@media (max-width: 48rem) {
+    .admin__bar { flex-direction: column; align-items: stretch; }
+    .admin__actions { margin-left: 0; }
+}

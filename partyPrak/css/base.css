@@ -1,0 +1,277 @@
+/* ==========================================================================
+   base.css — сброс, элементы, каркас страницы, декоративные примитивы.
+   ========================================================================== */
+
+@layer base {
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+        scroll-padding-top: 7rem;
+    }
+
+    body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: var(--text-md);
+        font-weight: 400;
+        line-height: var(--leading-normal);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    body.is-locked { overflow: hidden; }
+
+    h1, h2, h3, h4, h5 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: var(--leading-tight);
+        letter-spacing: var(--tracking-tight);
+        text-wrap: balance;
+    }
+
+    h1 { font-size: var(--text-4xl); font-weight: 800; }
+    h2 { font-size: var(--text-3xl); font-weight: 800; }
+    h3 { font-size: var(--text-2xl); }
+    h4 { font-size: var(--text-xl); }
+    h5 { font-size: var(--text-lg); }
+
+    p { margin: 0 0 var(--space-4); text-wrap: pretty; }
+    p:last-child { margin-bottom: 0; }
+
+    a {
+        color: var(--pink-deep);
+        font-weight: 600;
+        text-underline-offset: 0.2em;
+        transition: color var(--duration-fast) var(--ease-out);
+    }
+    a:hover { color: var(--pink); }
+
+    img, svg, video { display: block; max-width: 100%; }
+    img { height: auto; background: var(--paper-sunken); }
+
+    ul, ol { margin: 0 0 var(--space-4); padding-left: 1.3em; }
+    li + li { margin-top: var(--space-2); }
+
+    strong, b { font-weight: 800; color: var(--ink); }
+
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+
+    :focus-visible {
+        outline: 3px solid var(--violet);
+        outline-offset: 3px;
+        border-radius: var(--radius-sm);
+    }
+    :focus:not(:focus-visible) { outline: none; }
+
+    ::selection { background: var(--pink); color: #fff; }
+
+    .skip-link {
+        position: absolute;
+        left: var(--space-4);
+        top: var(--space-4);
+        z-index: calc(var(--z-header) + 1);
+        padding: var(--space-3) var(--space-5);
+        background: var(--berry);
+        color: #fff;
+        border-radius: var(--radius-pill);
+        font-weight: 700;
+        text-decoration: none;
+        transform: translateY(-250%);
+        transition: transform var(--duration) var(--ease-bounce);
+    }
+    .skip-link:focus { transform: translateY(0); color: #fff; }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px; height: 1px;
+        margin: -1px; padding: 0;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
+
+@layer layout {
+    .container {
+        width: 100%;
+        max-width: 78rem;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+    }
+    .container--narrow { max-width: 56rem; }
+
+    .section {
+        position: relative;
+        padding-block: var(--section-y);
+    }
+    .section--sunken { background: var(--paper-sunken); }
+    .section--tint   { background: var(--paper-tint); }
+
+    /* Заголовок секции */
+    .section-head {
+        max-width: 48rem;
+        margin-bottom: var(--space-8);
+    }
+    .section-head--center { margin-inline: auto; text-align: center; }
+
+    /* Эйбрау — «стикер», а не строчка мелкого текста. */
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        margin: 0 0 var(--space-4);
+        padding: 0.375rem 0.875rem;
+        background: var(--pink-soft);
+        border-radius: var(--radius-pill);
+        color: var(--pink-deep);
+        font-family: var(--font-body);
+        font-size: var(--text-sm);
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+    .eyebrow svg { width: 1rem; height: 1rem; }
+    .eyebrow--amber { background: var(--amber-soft); color: var(--amber-deep); }
+    .eyebrow--mint  { background: var(--mint-soft);  color: var(--mint-deep); }
+    .eyebrow--violet{ background: var(--violet-soft);color: var(--violet-deep); }
+
+    .section-title { margin-bottom: var(--space-4); }
+
+    /* Выделение слова в заголовке: подчёркивание-мазок.
+       Рисуем фоном, а не псевдоэлементом, чтобы фраза переносилась
+       по строкам — иначе длинное словосочетание распирает страницу. */
+    .swash {
+        color: var(--pink-deep);
+        background-image: linear-gradient(rgba(255, 182, 39, .5), rgba(255, 182, 39, .5));
+        background-repeat: no-repeat;
+        background-size: 100% 0.26em;
+        background-position: 0 86%;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+    }
+
+    .section-lede {
+        max-width: var(--measure);
+        margin: 0;
+        font-size: var(--text-lg);
+        line-height: var(--leading-loose);
+        color: var(--ink-2);
+    }
+    .section-head--center .section-lede { margin-inline: auto; }
+
+    .grid { display: grid; gap: var(--space-5); }
+    .grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); }
+
+    .stack > * + * { margin-top: var(--space-4); }
+    .cluster {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+    }
+}
+
+/* ==========================================================================
+   Декоративные примитивы: волны, кляксы, конфетти, шарики.
+   Всё чисто оформительское и скрыто от скринридеров через aria-hidden.
+   ========================================================================== */
+@layer layout {
+
+    /* Секция с пятном обрезает его по своим границам, иначе пятно
+       расширяет документ и появляется горизонтальная прокрутка.
+       Через :has(), чтобы не вешать overflow на секции со sticky-сайдбаром. */
+    .section:has(.blob) { overflow: hidden; }
+
+    /* Цветное пятно-подложка. */
+    .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: .5;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .blob--pink   { background: var(--pink); }
+    .blob--mint   { background: var(--mint); }
+    .blob--violet { background: var(--violet); }
+
+
+    /* Плавающие элементы — шарики, звёздочки. */
+    .float { animation: float 6s var(--ease-out) infinite; }
+    .float--slow { animation-duration: 9s; }
+    .float--delay { animation-delay: -3s; }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50%      { transform: translateY(-18px) rotate(3deg); }
+    }
+}
+
+/* ==========================================================================
+   Движение: переходы между страницами и появление содержимого.
+   Всё уважает prefers-reduced-motion через общее правило в @layer base.
+   ========================================================================== */
+@layer layout {
+
+    /* Кросс-документные переходы (Chrome 126+). В браузерах без поддержки
+       правило просто игнорируется — переход остаётся мгновенным. */
+    @view-transition { navigation: auto; }
+
+    ::view-transition-old(root) { animation: vt-out 220ms var(--ease-out) both; }
+    ::view-transition-new(root) { animation: vt-in  320ms var(--ease-out) both; }
+
+    @keyframes vt-out { to { opacity: 0; transform: translateY(-8px); } }
+    @keyframes vt-in  { from { opacity: 0; transform: translateY(12px); } }
+
+    /* Шапка «съезжает» сверху при первой отрисовке. */
+    .js .header { animation: slide-down 520ms var(--ease-bounce) both; }
+    @keyframes slide-down { from { opacity: 0; transform: translateY(-100%); } }
+
+    /* Содержимое первого экрана появляется лесенкой: подзаголовок, заголовок,
+       описание, кнопки, доверие — каждый на 70 мс позже предыдущего. */
+    .js .hero__content > * { animation: rise 620ms var(--ease-out) both; }
+    .js .hero__content > *:nth-child(1) { animation-delay: 60ms; }
+    .js .hero__content > *:nth-child(2) { animation-delay: 130ms; }
+    .js .hero__content > *:nth-child(3) { animation-delay: 200ms; }
+    .js .hero__content > *:nth-child(4) { animation-delay: 270ms; }
+    .js .hero__content > *:nth-child(5) { animation-delay: 340ms; }
+    .js .hero__stats { animation: rise 620ms var(--ease-out) 420ms both; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+
+    /* Панель поиска «выныривает» из-под героя. */
+    .js .search-bar__panel { animation: rise 700ms var(--ease-bounce) 480ms both; }
+
+    /* Шапка внутренних страниц. */
+    .js .page-header > .container > * { animation: rise 560ms var(--ease-out) both; }
+    .js .page-header > .container > *:nth-child(2) { animation-delay: 80ms; }
+    .js .page-header > .container > *:nth-child(3) { animation-delay: 150ms; }
+    .js .page-header > .container > *:nth-child(4) { animation-delay: 220ms; }
+
+    /* Фото проявляется, когда действительно загрузилось, — вместо рывка
+       от серой заливки к картинке. */
+    .js img[data-loading] { opacity: 0; }
+    .js img[data-loaded] { animation: fade-in 420ms var(--ease-out) both; }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+}
+
+@layer utilities {
+    .muted { color: var(--ink-3); }
+    .relative { position: relative; z-index: 1; }
+}
